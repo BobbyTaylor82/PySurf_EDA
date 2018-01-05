@@ -21,7 +21,7 @@ libraries used:
 </ul>
 
 
-<h3><u>Instructions</u></h3>
+<h3><ul>Instructions</ul></h3>
 
 
 ## Section 1 - Data Engineering
