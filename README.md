@@ -1,6 +1,6 @@
 <h3>Project Title: PySurf_EDA</h3>
 
-![png](plots/mysql.png)
+![png](surfs-up.jpeg)
 
 Project Objective: In this project, the goal was to understand basic sqlalchemy and how it can be used to query db's using python. After all the queries were performed, a Flask api was built using all the information collected during the analysis.
 
