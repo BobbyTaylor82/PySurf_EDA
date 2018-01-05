@@ -1,8 +1,30 @@
-# PySurf_EDA
+<h3>Project Title: PySurf_EDA</h3>
+
+![png](plots/mysql.png)
+
+Project Objective: In this project, the goal was to understand basic sqlalchemy and how it can be used to query db's using python. After all the queries were performed, a Flask api was built using all the information collected during the analysis.
+
+Tools Used: 
+<ul>
+<li>DB Browser for Sqlite </li>
+<li>Jupyter notebook</li>
+<li> Tableau</li>
+</ul>
+
+libraries used:
+<ul>
+<li>sqlalchemy </li>
+<li>pandas </li>
+<li>numpy </li>
+<li>seaborn </li>
+<li>matplotlib</li>
+</ul>
 
 
+<h3></u>Instructions</u></h3>
 
-## Step 1 - Data Engineering
+
+## Section 1 - Data Engineering
 
 The climate data for Hawaii is provided through two CSV files. Start by using Python and Pandas to inspect the content of these files and clean the data.
 
@@ -16,7 +38,7 @@ The climate data for Hawaii is provided through two CSV files. Start by using Py
 
 ---
 
-## Step 2 - Database Engineering
+## Section 2 - Database Engineering
 
 Use SQLAlchemy to model your table schemas and create a sqlite database for your tables. You will need one table for measurements and one for stations.
 
@@ -36,7 +58,7 @@ Use SQLAlchemy to model your table schemas and create a sqlite database for your
 
 ---
 
-## Step 3 - Climate Analysis and Exploration
+## Section 3 - Climate Analysis and Exploration
 
 You are now ready to use Python and SQLAlchemy to do basic climate analysis and data exploration on your new weather station tables. All of the following analysis should be completed using SQLAlchemy ORM queries, Pandas, and Matplotlib.
 
@@ -48,7 +70,7 @@ You are now ready to use Python and SQLAlchemy to do basic climate analysis and 
 
 * Use SQLAlchemy `automap_base()` to reflect your tables into classes and save a reference to those classes called `Station` and `Measurement`.
 
-### Precipitation Analysis
+## Precipitation Analysis
 
 * Design a query to retrieve the last 12 months of precipitation data.
 
@@ -77,7 +99,7 @@ You are now ready to use Python and SQLAlchemy to do basic climate analysis and 
 
   * Plot the results as a histogram with `bins=12`.
 
-### Temperature Analysis
+## Temperature Analysis
 
 * Write a function called `calc_temps` that will accept a start date and end date in the format `%Y-%m-%d` and return the minimum, average, and maximum temperatures for that range of dates.
 
@@ -90,13 +112,13 @@ You are now ready to use Python and SQLAlchemy to do basic climate analysis and 
   * Use the peak-to-peak (tmax-tmin) value as the y error bar (yerr).
 
 
-## Step 4 - Climate App
+## Section 4 - Climate App
 
 Now that you have completed your initial analysis, design a Flask api based on the queries that you have just developed.
 
 * Use FLASK to create your routes.
 
-### Routes
+## Section 5 - Routes
 
 * `/api/v1.0/precipitation`
 
