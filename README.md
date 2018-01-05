@@ -58,7 +58,6 @@ You are now ready to use Python and SQLAlchemy to do basic climate analysis and 
 
 * Plot the results using the DataFrame `plot` method.
 
-<center><img src='images/precip.png' /></center>
 
 * Use Pandas to print the summary statistics for the precipitation data.
 
@@ -78,8 +77,6 @@ You are now ready to use Python and SQLAlchemy to do basic climate analysis and 
 
   * Plot the results as a histogram with `bins=12`.
 
-  <center><img src='images/temp_hist.png' height="400px" /></center>
-
 ### Temperature Analysis
 
 * Write a function called `calc_temps` that will accept a start date and end date in the format `%Y-%m-%d` and return the minimum, average, and maximum temperatures for that range of dates.
@@ -91,9 +88,6 @@ You are now ready to use Python and SQLAlchemy to do basic climate analysis and 
   * Use the average temperature as the bar height.
 
   * Use the peak-to-peak (tmax-tmin) value as the y error bar (yerr).
-
-<center><img src='images/temp_avg.png' height="400px"/></center>
-
 
 ### Optional Recommended Analysis
 
@@ -111,9 +105,6 @@ You are now ready to use Python and SQLAlchemy to do basic climate analysis and 
 
   * Use Pandas to plot an area plot (`stacked=False`) for the daily normals.
 
-  <center><img src="images/daily_normals.png" /></center>
-
----
 
 ## Step 4 - Climate App
 
@@ -147,12 +138,4 @@ Now that you have completed your initial analysis, design a Flask api based on t
 
   * When given the start and the end date, calculate the `TMIN`, `TAVG`, and `TMAX` for dates between the start and end date inclusive.
 
-## Hints
 
-* You will need to join the station and measurement tables for some of the analysis queries.
-
-* Use Flask `jsonify` to convert your api data into a valid json response object.
-
-## Copyright
-
-Coding Boot Camp © 2017. All Rights Reserved.
