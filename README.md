@@ -102,7 +102,7 @@ The tavg, tmax, and tmax for dates greater than or equal to 2016-16-03 are 74.02
 ![png](pic/output_69_0.png)
 
 <h3><u>Conclusion</u></h3>
-<p>While performing an eda for the hawaii sqlite database, I noticed a few different observations. The findings are below:. </p>
+<p>While performing an eda for the hawaii sqlite database, I noticed a few different observations. The findings are below: </p>
 <h4><u>Findings</u></h4>
 <ul>
 <li>In 2016, the average temperature in Hawaii was 74.1 °F with variation of +/- 19.9 °F.</li> 
