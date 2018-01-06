@@ -189,9 +189,9 @@ There are 9 weather stations in hawaii.
 
 ```python
 USC00519281 is the most active station
+```
 
 ## <u>Temperature Analysis</u>
-```
 ### Plot for 2016 Observed Temperatures in Hawaii
 
 
