@@ -173,6 +173,8 @@ Now that you have completed your initial analysis, design a Flask api based on t
 
 ## Summary for 2016 Precipation
 
+![png](pic/prcp.png)
+
 
 ## <u>Station Analysis</u>
 
