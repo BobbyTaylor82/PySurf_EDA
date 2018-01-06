@@ -231,11 +231,11 @@ Hawaii gets two 👍 👍and two raised ✋ ✋.
 ![png](pic/output_69_0.png)
 
 <h3><u>Conclusion</u></h3>
-<p>While performing an eda for the hawaii sqlite database, I noticed a few different observations. The findings are below:. The insights are below:</p>
+<p>While performing an eda for the hawaii sqlite database, I noticed a few different observations. The findings are below:. </p>
 <h4><u>Findings</u></h4>
 <ul>
-<li>In the Temperature vs. Latitude scatter plot, as the latitude increases the temperature increases.</li> 
-<p><li>In the Wind Speed (mph) vs. Latitude scatter plot, the average when speed for all cities is fairly low.  </li><br>
-<li>The wind speeds are higher on average at the north and south poles.</li>
+<li>In 2015, the average temperature in Hawaii was 74.1 °F with variation of +/- 19.9 °F.</li> 
+<p><li> </li><br>
+<li></li>
 </ul>
 
