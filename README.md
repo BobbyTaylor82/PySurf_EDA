@@ -149,7 +149,7 @@ Now that you have completed your initial analysis, design a Flask api based on t
 ## <u> Step 3 - Climate Analysis and Exploration </u>
 
 
-# <u>Vacation Analysis</u>
+## <u>Vacation Analysis</u>
 
 ### Observed Temperature and Precipation for 10-01-2016 to 10-10-2016
 
@@ -163,7 +163,7 @@ Now that you have completed your initial analysis, design a Flask api based on t
 ![png](pic/output_12_0.png)
 
 
-# <u>Precipitation Analysis</ul>
+## <u>Precipitation Analysis</ul>
 
 ## Plot Hawaii Rainfall for 2016
 
@@ -185,7 +185,7 @@ Now that you have completed your initial analysis, design a Flask api based on t
 
 ```
 
-# <u>Station Analysis</u>
+## <u>Station Analysis</u>
 
 ### Design a query to calculate the total number of stations
 
@@ -224,7 +224,7 @@ Hawaii gets two 👍 👍and two raised ✋ ✋.
 ![png](pic/output_50_0.png)
 
 
-# <u>Temperature Analysis</u>
+## <u>Temperature Analysis</u>
 
 ### Plot for tavg,tmin,and tmax for dates greater than or equal to input date
 
