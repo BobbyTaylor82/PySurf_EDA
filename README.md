@@ -50,9 +50,6 @@ libraries used:
 
 ## <u>Station Analysis</u>
 
-### Design a query to calculate the total number of stations
-
-
 ```python
 There are 9 weather stations in hawaii.
 ```
@@ -64,9 +61,7 @@ There are 9 weather stations in hawaii.
 
 ![](pic/map.png)
 
-```python
-USC00519281 is the most active station
-```
+
 
 ## <u>Temperature Analysis</u>
 ### Plot for 2016 Observed Temperatures in Hawaii
