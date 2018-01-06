@@ -231,7 +231,7 @@ Hawaii gets two 👍 👍and two raised ✋ ✋.
 <h4><u>Findings</u></h4>
 <ul>
 <li>In 2016, the average temperature in Hawaii was 74.1 °F with variation of +/- 19.9 °F.</li> 
-<p><li> </li><br>
+<p><li> All the stations, in this eda where located in Oʻahu. The stations which were more inland where used for tobs and prcp measurements.</li><br>
 <li></li>
 </ul>
 
