@@ -147,7 +147,7 @@ Now that you have completed your initial analysis, design a Flask api based on t
 
 ## Analysis and Plots
 
-## <u>Vacation Analysis</u>
+<h2><u>Vacation Analysis</u></h2>
 
 ### Observed Temperature and Precipation for 10-01-2016 to 10-10-2016
 
@@ -189,6 +189,8 @@ There are 9 weather stations in hawaii.
 
 ```python
 USC00519281 is the most active station
+
+## <u>Temperature Analysis</u>
 ```
 ### Plot for 2016 Observed Temperatures in Hawaii
 
@@ -210,7 +212,7 @@ Hawaii gets two 👍 👍and two raised ✋ ✋.
 ![png](pic/output_50_0.png)
 
 
-## <u>Temperature Analysis</u>
+
 
 ### Plot for tavg,tmin,and tmax for dates greater than or equal to input date
 
