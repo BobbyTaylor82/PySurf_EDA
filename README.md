@@ -92,7 +92,7 @@ Hawaii gets two 👍 👍and two raised ✋ ✋.
 ![png](pic/output_61_0.png)
 
 
-### Plot for tavg, tmin, and tmax for dates between '2015-01-28' and '2016-01-05.
+### Plot for tavg, tmin, and tmax for dates between 2015-01-28 and 2016-01-05.
 
 
 ![png](pic/output_69_0.png)
