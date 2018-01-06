@@ -163,13 +163,16 @@ Now that you have completed your initial analysis, design a Flask api based on t
 
 ## <u>Precipitation Analysis</ul>
 
-## Plot Hawaii Rainfall for 2016
+## Plot Hawaii Precipation for 2016
 
 
 
 
 
 ![png](pic/output_20_0.png)
+
+## Summary for 2016 Precipation
+
 
 ## <u>Station Analysis</u>
 
