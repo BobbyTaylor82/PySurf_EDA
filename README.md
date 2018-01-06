@@ -231,8 +231,8 @@ Hawaii gets two 👍 👍and two raised ✋ ✋.
 ![png](pic/output_69_0.png)
 
 <h3><u>Conclusion</u></h3>
-<p>************************. The insights are below:</p>
-<h4><u>Insights</u></h4>
+<p>While performing an eda for the hawaii sqlite database, I noticed a few different observations. The findings are below:. The insights are below:</p>
+<h4><u>Findings</u></h4>
 <ul>
 <li>In the Temperature vs. Latitude scatter plot, as the latitude increases the temperature increases.</li> 
 <p><li>In the Wind Speed (mph) vs. Latitude scatter plot, the average when speed for all cities is fairly low.  </li><br>
