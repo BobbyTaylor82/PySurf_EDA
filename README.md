@@ -147,9 +147,6 @@ Now that you have completed your initial analysis, design a Flask api based on t
 
 ## Analysis and Plots
 
-## <u> Step 3 - Climate Analysis and Exploration </u>
-
-
 ## <u>Vacation Analysis</u>
 
 ### Observed Temperature and Precipation for 10-01-2016 to 10-10-2016
