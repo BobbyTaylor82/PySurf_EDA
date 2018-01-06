@@ -232,6 +232,6 @@ Hawaii gets two 👍 👍and two raised ✋ ✋.
 <ul>
 <li>In 2016, the average temperature in Hawaii was 74.1 °F with variation of +/- 19.9 °F.</li> 
 <p><li> All the stations, in this datebase where located in Oʻahu. There seems to be a positive relationship between the number of observations and location. The stations with the most obseravations where located along the coastline.</li><br>
-<li></li>
+<li>USC00519281 is the most active station in O'ahu located in Mililani Town.</li>
 </ul>
 
