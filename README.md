@@ -156,12 +156,9 @@ Now that you have completed your initial analysis, design a Flask api based on t
 
 ```python
 
-    I have decided to go on a 10 day vacation !!!
+    I have decided to go on a 10 day vacation !!! 
 
 ```
-
-
-### Plot for  Observed Temperature and Precipation between 10-01-2016 to 10-10-2016
 
 ![png](pic/output_12_0.png)
 
