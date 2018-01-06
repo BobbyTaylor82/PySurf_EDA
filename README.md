@@ -225,9 +225,7 @@ Hawaii gets two 👍 👍and two raised ✋ ✋.
 
 
 ![png](pic/output_50_0.png)
-```python
 
-    """
 
 # <u>Temperature Analysis</u>
 
@@ -236,15 +234,11 @@ Hawaii gets two 👍 👍and two raised ✋ ✋.
 
 ![png](pic/output_61_0.png)
 
-```python
 
-    """
 ### Plot for tavg,tmin, and tmax for dates between input dates
 
 
 ![png](pic/output_69_0.png)
 
-```python
 
-    """
 
