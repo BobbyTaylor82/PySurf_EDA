@@ -169,22 +169,10 @@ Now that you have completed your initial analysis, design a Flask api based on t
 ## Plot Hawaii Rainfall for 2016
 
 
-```python
 
-```
 
 
 ![png](pic/output_20_0.png)
-
-
-## Summary for Hawaii Rainfall for 2016
-
-
-```python
-
-
-
-```
 
 ## <u>Station Analysis</u>
 
