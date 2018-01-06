@@ -163,18 +163,6 @@ Now that you have completed your initial analysis, design a Flask api based on t
 
 ### Plot for  Observed Temperature and Precipation between 10-01-2016 to 10-10-2016
 
-
-```python
-plt.style.use('classic')
-
-fig,(ax1,ax2) = plt.subplots(2,1,sharex=True)
-df_temp_weather_for_vacation.Vacation_TOBS.plot(ax=ax1,figsize=(18,8),ls='--',lw=10,color='r',legend=True,title='Vacation Observed Temperature',ylim=(60,100))
-df_temp_weather_for_vacation.Vacation_PRCP.plot(ax=ax2,figsize=(18,8),ls='--',lw=10,legend=True,title='Vacation Observed Precipation',ylim=(0,10));
-
-fig.suptitle('Observed Temperature and Precipation for 10-01-2016 to 10-10-2016',size=20);
-```
-
-
 ![png](pic/output_12_0.png)
 
 
@@ -184,20 +172,6 @@ fig.suptitle('Observed Temperature and Precipation for 10-01-2016 to 10-10-2016'
 
 
 ```python
-plt.style.use('dark_background')
-
-df_greater_1_inch.precipitation.plot(c='b',figsize=(18,8),ls=':',lw=(5),marker='^',grid=True,label='precip > 1 inch ',markerfacecolor='yellow',ms=15,markeredgecolor='yellow')
-df_at_1_inch.precipitation.plot(c='b',figsize=(18,8),ls=':',lw=(5),marker='^',label='precip = 1 inch',markerfacecolor='white',ms=15,markeredgecolor='yellow')
-df_less_1_inch.precipitation.plot(c='b',figsize=(18,8),ls='--',lw=(5),marker='^',grid=True,label='precip < 1 inch ', markerfacecolor='red',ms=15,markeredgecolor='white',alpha=.5)
-
-plt.xlabel('Dates',fontsize=(18))
-plt.ylabel('Percipitation (inches)',fontsize=(18));
-plt.title('2016 Observed Rainfall in Hawaii',fontsize=(25));
-plt.legend(fontsize='x-large')
-plt.ylim(0,8)
-plt.grid(color='white', linestyle='--', linewidth=2,alpha=.1)
-plt.tight_layout()
-
 
 ```
 
@@ -209,57 +183,10 @@ plt.tight_layout()
 
 
 ```python
-df_precip_measurments_2016.describe().T
+
+
+
 ```
-
-
-
-
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>count</th>
-      <th>mean</th>
-      <th>std</th>
-      <th>min</th>
-      <th>25%</th>
-      <th>50%</th>
-      <th>75%</th>
-      <th>max</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>precipitation</th>
-      <td>2069.0</td>
-      <td>0.179845</td>
-      <td>0.506363</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.02</td>
-      <td>0.15</td>
-      <td>9.64</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
 
 # <u>Station Analysis</u>
 
@@ -267,269 +194,57 @@ df_precip_measurments_2016.describe().T
 
 
 ```python
-print('There are {} weather stations in hawaii'.format(session.query(Stations.station).count()))
+There are 9 weather stations in hawaii.
 ```
-
-    There are 9 weather stations in hawaii
-
-
-###  Design a query to find the most active stations
-
-
-
-
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Station_id</th>
-      <th>Activity Count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>USC00518838</td>
-      <td>342</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>USC00517948</td>
-      <td>683</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>USC00511918</td>
-      <td>1932</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>USC00514830</td>
-      <td>1937</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>USC00516128</td>
-      <td>2484</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>USC00519523</td>
-      <td>2572</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>USC00519397</td>
-      <td>2685</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>USC00513117</td>
-      <td>2696</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>USC00519281</td>
-      <td>2772</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-##  *USC00519281 is the most active station*
 
 ### <u>Plot Most Active Stations Dataframe</u>
-
-
-```python
-plt.style.use('dark_background')
-plt.figure(figsize=(18,8))
-sns.barplot(x='Station_id',y='Activity Count',data=df_station_activity,palette='bwr')
-plt.xlabel('Stations',fontsize=(20))
-plt.ylabel('Activity Count',fontsize=(20));
-plt.title('Most Active Stations',fontsize=(25));
-plt.legend(fontsize='x-large')
-plt.tight_layout()
-```
-
 
 ![png](pic/output_31_0.png)
 
 
 ![](pic/map.png)
 
-
-### Plot for 2016 Observed Temperatures in Hawaii
-
-
 ```python
-plt.style.use('classic')
-
-
-
-df_temp_2016_hawaii.plot(c='gray',marker='v',legend=True, ms=2,markerfacecolor='blue',figsize=(18,8));
-
-plt.xlabel('Dates',fontsize=(18))
-
-
-plt.ylabel('Temp (°F)',fontsize=(18));
-plt.title('2016 Observed Temperatures in Hawaii',fontsize=(25));
-plt.legend(['Temp (°F)'],fontsize='x-large')
-plt.ylim(50,90);
-plt.tight_layout();
-
-
+USC00519281 is the most active station
 ```
+### Plot for 2016 Observed Temperatures in Hawaii
 
 
 ![png](pic/output_39_0.png)
 
 
-
-```python
-df_temp_2016_hawaii.var()
-```
-
-
-
-
-    Temp    19.968016
-    dtype: float64
-
-
-
-
-```python
-df_temp_2016_hawaii.describe()
-```
-
-
-
-
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Temp</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>2069.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>74.085549</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>4.468559</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>56.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>71.000000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>75.000000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>77.000000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>84.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
 ### In 2015, the average temperature in Hawaii was 74.1 °F with variation of +/- 19.9 °F. This sounds like perfect weather to me. 
 
-
 ```python
-print(emoji.emojize('Hawaii gets two :thumbsup: :thumbsup:\
-and two raised :raised_hand: :raised_hand:.', use_aliases=True))
+Hawaii gets two 👍 👍and two raised ✋ ✋.
 ```
 
-    Hawaii gets two 👍 👍and two raised ✋ ✋.
+    
 
 ### Plot 2016 Hawaii Temperature Observations for Station USC00519281
 
 
 ![png](pic/output_50_0.png)
+```python
 
+    """
 
 # <u>Temperature Analysis</u>
-
-
-
 
 ### Plot for tavg,tmin,and tmax for dates greater than or equal to input date
 
 
 ![png](pic/output_61_0.png)
 
-
-### This query will return tavg,tmin, and tmax for dates between input dates.
-
-
 ```python
 
     """
-
-
 ### Plot for tavg,tmin, and tmax for dates between input dates
-
-
-```python
-plt.style.use('dark_background')
-plt.figure(figsize=(3,5))
-sns.barplot(y='Values',data=df_Temp_Analysis,ci=tmax-tmin,errwidth=3,errcolor='yellow', color='blue')
-plt.ylabel('Avg Temp (°F)',fontsize=(18));
-
-```
 
 
 ![png](pic/output_69_0.png)
 
+```python
 
+    """
 
