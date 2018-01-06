@@ -70,7 +70,7 @@ There are 9 weather stations in hawaii.
 ![png](pic/output_39_0.png)
 
 
-### In 2016, the average temperature in Hawaii was 74.1 °F with variation of +/- 19.9 °F. This sounds like perfect weather to me. 
+### In 2016, the average temperature in Hawaii was 74.1 °F with a variation of +/- 19.9 °F. This sounds like perfect weather to me. 
 
 ```python
 Hawaii gets two 👍 👍and two raised ✋ ✋.
