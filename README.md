@@ -105,7 +105,7 @@ The tavg, tmax, and tmax for dates greater than or equal to 2016-16-03 are 74.02
 <p>While performing an eda for the hawaii sqlite database, I noticed a few different observations. The findings are below: </p>
 <h4><u>Findings</u></h4>
 <ul>
-<li>In 2016, the average temperature in Hawaii was 74.1 °F with variation of +/- 19.9 °F.</li> 
+<li>In 2016, the average temperature in Hawaii was 74.1 °F with a variation of +/- 19.9 °F.</li> 
 <p><li> All the stations, in this datebase where located in Oʻahu. There seems to be a positive relationship between the number of observations and location. The stations with the most obseravations where located along the coastline.</li><br>
 <li>USC00519281 is the most active station in O'ahu located in Mililani Town.</li>
     <li>The total prcp for all stations in 2016 was 372 inches.</li>
