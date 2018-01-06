@@ -9,6 +9,7 @@ Tools Used:
 <li>DB Browser for Sqlite </li>
 <li>Jupyter notebook</li>
 <li> Tableau</li>
+<li> Excel </li>
 </ul>
 
 libraries used:
