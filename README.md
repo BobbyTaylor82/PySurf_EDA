@@ -149,93 +149,17 @@ Now that you have completed your initial analysis, design a Flask api based on t
 ## <u> Step 3 - Climate Analysis and Exploration </u>
 
 
-```python
-from sqlalchemy import func,asc
-from sqlalchemy.ext.automap import automap_base
-from sqlalchemy.orm import Session
-from sqlalchemy import create_engine
-import pandas as pd
-import matplotlib.pyplot as plt
-%matplotlib inline
-import seaborn as sns
-import warnings
-import emoji
-warnings.filterwarnings('ignore')
-```
-
-# <u>Set-Up</u>
-
-
-```python
-engine = create_engine("sqlite:///hawaii.sqlite")
-
-session = Session(engine)
-```
-
-
-```python
-Base = automap_base()
-Base.prepare(engine,reflect=True)
-Measurments = Base.classes.measurments
-Stations = Base.classes.stations
-```
-
-
-```python
-Base.classes.keys()
-```
-
-
-
-
-    ['measurments', 'stations']
-
-
-
 # <u>Vacation Analysis</u>
 
 ### Observed Temperature and Precipation for 10-01-2016 to 10-10-2016
 
 
 ```python
-#numbers of vacation days
-total_vacation_days = session.query(Measurments.date).\
-filter(Measurments.date >= '2016-10-01').\
-filter(Measurments.date <= '2016-10-10').order_by(Measurments.date.asc()).distinct().count()
-
-#print statement
-print('I have decided to go on a {} day vacation !!!'.format(total_vacation_days))
-```
 
     I have decided to go on a 10 day vacation !!!
 
-
-
-```python
-query_temp_weather_for_vacation =session.query(Measurments.date, Measurments.tobs,Measurments.prcp).\
-filter(Measurments.date >= '2016-10-01').\
-filter(Measurments.date <= '2016-10-10').order_by(Measurments.date.asc()).all()
 ```
 
-
-```python
-temp_vacaction_list = []
-date_vacation_list = []
-prcp_vacation_list = []
-
-for date_vac,temp_vac,prcp_vac in query_temp_weather_for_vacation:
-    date_vacation_list.append(date_vac)
-    temp_vacaction_list.append(temp_vac)
-    prcp_vacation_list.append(prcp_vac)
-    
-df_temp_weather_for_vacation= pd.DataFrame({"Date_Vacation":date_vacation_list,
-              "Vacation_TOBS": temp_vacaction_list,
-              "Vacation_PRCP": prcp_vacation_list})
-
-df_temp_weather_for_vacation['Date_Vacation'] = pd.to_datetime(df_temp_weather_for_vacation['Date_Vacation'])
-
-df_temp_weather_for_vacation.set_index(keys='Date_Vacation',inplace=True)
-```
 
 ### Plot for  Observed Temperature and Precipation between 10-01-2016 to 10-10-2016
 
@@ -255,41 +179,6 @@ fig.suptitle('Observed Temperature and Precipation for 10-01-2016 to 10-10-2016'
 
 
 # <u>Precipitation Analysis</ul>
-
-###  Design a query to retrieve the last 12 months of precipitation data.
-
-
-```python
-precip_measurments_2016 =session.query(Measurments.date,Measurments.prcp).\
-filter(Measurments.date.between('2016-01-01','2016-12-31')).all()
-```
-
-
-```python
-dates_list = []
-precip_list = []
-
-for dates,precip in precip_measurments_2016:
-    dates_list.append(dates)
-    precip_list.append(precip)
-    
-```
-
-
-```python
-df_precip_measurments_2016= pd.DataFrame({'dates':dates_list,'precipitation':precip_list})
-
-df_precip_measurments_2016['dates'] = pd.to_datetime(df_precip_measurments_2016['dates'])
-
-df_precip_measurments_2016.set_index(['dates'],inplace=True)
-```
-
-
-```python
-df_greater_1_inch =df_precip_measurments_2016[df_precip_measurments_2016['precipitation'] >= 1]
-df_less_1_inch =df_precip_measurments_2016[df_precip_measurments_2016['precipitation'] <= 1]
-df_at_1_inch =df_precip_measurments_2016[df_precip_measurments_2016['precipitation'] == 1]
-```
 
 ## Plot Hawaii Rainfall for 2016
 
@@ -385,33 +274,6 @@ print('There are {} weather stations in hawaii'.format(session.query(Stations.st
 
 
 ###  Design a query to find the most active stations
-
-
-```python
-most_active_stations = session.query(Stations.station,func.count(Stations.station))\
-.order_by(func.count(Stations.station))\
-.join(Measurments)\
-.group_by(Stations.station).all()
-```
-
-
-```python
-each_station_list = []
-active_value_list = []
-
-for each_station,active_value in most_active_stations:
-    each_station_list.append(each_station)
-    active_value_list.append(active_value)
-    
-
-
-df_station_activity = pd.DataFrame({'Activity Count': active_value_list,'Station_id': each_station_list})
-
-
-df_station_activity = df_station_activity[[ 'Station_id','Activity Count']]
-
-df_station_activity
-```
 
 
 
@@ -512,51 +374,6 @@ plt.tight_layout()
 
 ![](pic/map.png)
 
-### Design a query to retrieve the last 12 months of temperature observation data (tobs).
-
-
-```python
-temp_measurments_2016 =session.query(Measurments.date,Measurments.tobs).\
-filter(Measurments.date.between('2016-01-01','2016-12-31')).all()
-```
-
-
-```python
-dictionary_2016_Tobs = dict(temp_measurments_2016)
-```
-
-
-```python
-#create empty list for dates and temps
-each_date_list = []
-temp_list = []
-
-#generate empty list for temp
-for each_date,temp in temp_measurments_2016:
-    each_date_list.append(each_date)
-    temp_list.append(temp)
-    
-    
-
-#create dataframe 
-df_temp_2016_hawaii = pd.DataFrame({'Date': each_date_list,
-                                    'Temp': temp_list})
-
-
-#save column as datetime 
-df_temp_2016_hawaii['Date'] = pd.to_datetime(df_temp_2016_hawaii['Date'])
-
-
-
-df_temp_2016_hawaii.set_index(keys=['Date'],inplace=True)
-```
-
-
-```python
-df_temp_2016_hawaii_above_70 = df_temp_2016_hawaii[df_temp_2016_hawaii['Temp'] >= 70]
-
-df_temp_2016_hawaii_below_70 = df_temp_2016_hawaii[df_temp_2016_hawaii['Temp'] <= 70]
-```
 
 ### Plot for 2016 Observed Temperatures in Hawaii
 
@@ -675,120 +492,7 @@ and two raised :raised_hand: :raised_hand:.', use_aliases=True))
 
     Hawaii gets two 👍 👍and two raised ✋ ✋.
 
-
-### Filter by the station with the highest number of observations.
-
-
-```python
-Station_highest_obersations = session.query(Measurments.date,Measurments.tobs,Measurments.station).\
-filter(Measurments.date.between('2016-01-01','2016-12-31')).filter_by(station='USC00519281')\
-.all()
-```
-
-
-```python
-all_date_list_obs = []
-all_temp_list_obs = []
-station_id_list_obs = []
-
-
-for all_date_obs,all_temp_obs,station_id_obs in Station_highest_obersations:
-    all_date_list_obs.append(all_date_obs)
-    all_temp_list_obs.append(all_temp_obs)
-    station_id_list_obs.append(station_id_obs)
-    
-```
-
-
-```python
-df_Station_highest_obersations= pd.DataFrame({'Date': all_date_list_obs,
-               'Temp': all_temp_list_obs,
-            'station': station_id_list_obs})
-
-
-df_Station_highest_obersations['Date'] = pd.to_datetime(df_Station_highest_obersations['Date'])
-
-df_Station_highest_obersations.set_index('Date',inplace=True)
-
-df_Station_highest_obersations = df_Station_highest_obersations[['Temp']]
-
-df_Station_highest_obersations.head()
-```
-
-
-
-
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Temp</th>
-    </tr>
-    <tr>
-      <th>Date</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2016-01-01</th>
-      <td>74</td>
-    </tr>
-    <tr>
-      <th>2016-01-02</th>
-      <td>72</td>
-    </tr>
-    <tr>
-      <th>2016-01-03</th>
-      <td>68</td>
-    </tr>
-    <tr>
-      <th>2016-01-04</th>
-      <td>69</td>
-    </tr>
-    <tr>
-      <th>2016-01-05</th>
-      <td>70</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
 ### Plot 2016 Hawaii Temperature Observations for Station USC00519281
-
-
-```python
-df_Station_highest_obersations_greater = df_Station_highest_obersations[df_Station_highest_obersations['Temp'] >= 70]
-df_Station_highest_obersations_less = df_Station_highest_obersations[df_Station_highest_obersations['Temp'] <= 70]
-```
-
-
-```python
-plt.style.use('dark_background')
-plt.figure(figsize=(18,8))
-df_Station_highest_obersations_greater.Temp.plot(kind='hist',color='r',label='temp > 70 °F')
-df_Station_highest_obersations_less.Temp.plot(kind='hist',color='b',label='temp < 70 °F')
-plt.legend(fontsize='x-large')
-plt.xlabel('Temp (°F)',fontsize=(18))
-plt.ylabel('Absolute Frequency',fontsize=(18))
-plt.title('2016 Hawaii Temperature Observations for Station USC00519281',fontsize=(20));
-```
 
 
 ![png](pic/output_50_0.png)
@@ -796,117 +500,10 @@ plt.title('2016 Hawaii Temperature Observations for Station USC00519281',fontsiz
 
 # <u>Temperature Analysis</u>
 
-### The query will return  tavg,tmin,and tmax for dates greater than or equal to input date.
 
 
-```python
-def cal_temps0 (start_date):
-    """
-    The function will output the tavg,tmin,and tmax for dates greater than or equal to input date.
-    
-    input: Start date('YYYY-MM-DD')
-            
-    
-    
-    returns
-    tmax, tmin, and tavg 
-    
-    """
-    
-    return session.query(func.avg(Measurments.tobs),func.min(Measurments.tobs),func.max(Measurments.tobs)).\
-    filter(Measurments.date >= start_date).all()
-```
-
-
-```python
-avg_min_max_temps = cal_temps0('2016-16-03')
-```
-
-
-```python
-df_avg_min_max_temps = pd.DataFrame({'Avg': [avg_min_max_temps[0][0]],
-                               'Min': [avg_min_max_temps[0][1]],
-                               'Max': [avg_min_max_temps[0][2]]})
-```
-
-
-```python
-df_avg_min_max_temps = df_avg_min_max_temps.T.reset_index()
-```
-
-
-```python
-df_avg_min_max_temps.rename_axis({'index':'Avg\Min\Max', 0 : 'Values'},axis=1,inplace=True)
-```
-
-
-```python
-df_avg_min_max_temps
-```
-
-
-
-
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Avg\Min\Max</th>
-      <th>Values</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Avg</td>
-      <td>74.020521</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Max</td>
-      <td>87.000000</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Min</td>
-      <td>58.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-```python
-tavg0 = avg_min_max_temps[0][0]
-tmin0 = avg_min_max_temps[0][1]
-tmax0 = avg_min_max_temps[0][2]
-```
 
 ### Plot for tavg,tmin,and tmax for dates greater than or equal to input date
-
-
-```python
-plt.style.use('dark_background')
-plt.figure(figsize=(3,5))
-sns.barplot(y='Values',data=df_avg_min_max_temps,ci=tmax0-tmin0,errwidth=3,errcolor='yellow', color='blue')
-plt.ylabel('Avg Temp (°F)',fontsize=(18));
-```
 
 
 ![png](pic/output_61_0.png)
@@ -916,49 +513,9 @@ plt.ylabel('Avg Temp (°F)',fontsize=(18));
 
 
 ```python
-def calc_temps(start_date, end_date):
+
     """
-    
-    This query will return the tavg,tmin, and tmax for dates between input dates.
-    inputs: Start date('YYYY-MM-DD')
-            End date  ('YYYY-MM-DD')
-    
-    
-    returns
-    tmax, tmin, and tavg 
-    
-    """
-    
-    return session.query(func.avg(Measurments.tobs),func.min(Measurments.tobs),func.max(Measurments.tobs)).\
-    filter(Measurments.date.between(start_date, end_date)).all()
 
-```
-
-
-```python
-df_avg_min_max_temps_012015_to_032016 = calc_temps('2015-01-28', '2016-01-05')
-```
-
-
-```python
-df_Temp_Analysis = pd.DataFrame({'Avg': [df_avg_min_max_temps_012015_to_032016[0][0]],
-                               'Min': [df_avg_min_max_temps_012015_to_032016[0][1]],
-                               'Max': [df_avg_min_max_temps_012015_to_032016[0][2]]})
-
-tavg= df_avg_min_max_temps_012015_to_032016[0][0]
-tmin = df_avg_min_max_temps_012015_to_032016[0][1]
-tmax = df_avg_min_max_temps_012015_to_032016[0][2]
-```
-
-
-```python
-df_Temp_Analysis= df_Temp_Analysis.T.reset_index()
-```
-
-
-```python
-df_Temp_Analysis.rename_axis({'index':'Avg\Min\Max', 0 : 'Values'},axis=1,inplace=True)
-```
 
 ### Plot for tavg,tmin, and tmax for dates between input dates
 
