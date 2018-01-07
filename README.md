@@ -91,9 +91,6 @@ Hawaii gets two 👍 👍and two raised ✋ ✋.
 
 ![png](pic/output_61_0.png)
 
-```python
-The tavg, tmax, and tmax for dates greater than or equal to 2016-16-03 are 74.02, 87.00, and 58.00, respectively.
-```
 
 
 ### Plot for tavg, tmin, and tmax for dates between 2015-01-28 and 2016-01-05.
