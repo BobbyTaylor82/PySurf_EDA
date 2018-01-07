@@ -19,6 +19,8 @@ libraries used:
 <li>numpy </li>
 <li>seaborn </li>
 <li>matplotlib</li>
+<li>Pybleau</li>
+<li>Citipy</li>
 </ul>
 
 ## Analysis and Plots
